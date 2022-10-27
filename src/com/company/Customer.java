@@ -26,7 +26,7 @@ public class Customer {
     }
 
     float calculateDiscount() {
-        float discount = transactionCount * 0.1f;
-        return discount <= 10.0f ? discount : 10.0f;
+       float discount=transactionCount*0.1f;
+       return discount<=10.0f? discount : 10.0f;
     }
 }
