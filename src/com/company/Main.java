@@ -2,20 +2,7 @@ package com.company;
 
 public class Main {
     public static void main(String[] args) {
-//        Product appleMacbookAir=new Product();
-//        appleMacbookAir.id=1;
-//        appleMacbookAir.name="Apple Macbook Air";
-//        appleMacbookAir.category="Laptop";
-//        appleMacbookAir.salesPrice=80000f;
-//        appleMacbookAir.cost=60000f;
-//        appleMacbookAir.quantity=1000;
-//
-//        appleMacbookAir.activate();
-//        System.out.println(appleMacbookAir.name);
-//        System.out.println(appleMacbookAir.active);
-//        appleMacbookAir.deactivate();
-//        System.out.println(appleMacbookAir.active);
-//        System.out.println(appleMacbookAir.getProfitOrLoss());
+
 
         Customer customer = new Customer();
 
@@ -35,7 +22,7 @@ public class Main {
         System.out.println();
 
         Product appleMacBookAir =
-                new Product(1, "Apple MacBook Air", "Laptop",
+                new Product( "Apple MacBook Air", "Laptop",
                         80000f, 60000f, 1000, true);
 
         System.out.println(appleMacBookAir.name);
@@ -61,6 +48,31 @@ public class Main {
 
         Product hillary=new Product();
         System.out.println(hillary.name);
+        System.out.println();
+
+
+        Vendor lenVenInfoHub = new Vendor(1, "8th street", "Bengaluru",
+                "Uttar Pradesh", "Ishwar", "1234567890",
+                "ishwar.soni@gmail.com", "LenVen InfoHub");
+
+        Order order1 = new Order(1, lenVenInfoHub, "26/10/2020",appleMacBookAir, 10, 10000);
+        lenVenInfoHub.orders[0] = order1;
+
+        System.out.println(lenVenInfoHub.orders[0]);
+
+
+        lenVenInfoHub.products[0] = appleMacBookAir;
+//        System.out.println(lenVenInfoHub.fetchProductByName("Apple MacBook Air").category);
+        System.out.println();
+
+        System.out.println(lenVenInfoHub.address.state);
+
+
+        System.out.println(appleMacBookAir.id);
+        Product dummy = new Product();
+        System.out.println(dummy.id);
+        System.out.println(Product.countProducts());
+
 
     }
 }
