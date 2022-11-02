@@ -25,33 +25,25 @@ public class Main {
                 new Product( "Apple MacBook Air", "Laptop",
                         80000f, 60000f, 1000, true);
 
-        System.out.println(appleMacBookAir.name);
-        System.out.println(appleMacBookAir.active);
-        appleMacBookAir.deactivate();
-        System.out.println(appleMacBookAir.active);
+
         System.out.println(appleMacBookAir.getProfitOrLoss());
         System.out.println("macbook ends");
         System.out.println();
 
         //implementing copy constructor
         Product p2=new Product(appleMacBookAir);
-        p2.id=3;
-        p2.name="Lenovo";
-        System.out.println(p2.name);
-        System.out.println(p2.active);
-        p2.deactivate();
-        System.out.println(p2.active);
+
         System.out.println(p2.getProfitOrLoss());
         System.out.println("P2 ends");
         System.out.println();
 
 
         Product hillary=new Product();
-        System.out.println(hillary.name);
+
         System.out.println();
 
 
-        Vendor lenVenInfoHub = new Vendor(1, "8th street", "Bengaluru",
+        Vendor lenVenInfoHub = new Vendor( "8th street", "Bengaluru",
                 "Uttar Pradesh", "Ishwar", "1234567890",
                 "ishwar.soni@gmail.com", "LenVen InfoHub");
 
@@ -65,13 +57,15 @@ public class Main {
 //        System.out.println(lenVenInfoHub.fetchProductByName("Apple MacBook Air").category);
         System.out.println();
 
-        System.out.println(lenVenInfoHub.address.state);
+        System.out.println(lenVenInfoHub.getAddressDetails());
 
 
-        System.out.println(appleMacBookAir.id);
-        Product dummy = new Product();
-        System.out.println(dummy.id);
-        System.out.println(Product.countProducts());
+//        System.out.println(appleMacBookAir.id);
+//        Product dummy = new Product();
+//        System.out.println(dummy.id);
+//        System.out.println(Product.countProducts());
+
+        System.out.println(lenVenInfoHub.credit);
 
 
     }

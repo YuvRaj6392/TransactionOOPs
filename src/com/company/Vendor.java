@@ -1,9 +1,18 @@
 package com.company;
 
 public class Vendor {
+    static int idCounter=0;
     int id;
 
+    private static class Address {
+        String street, city, state;
 
+        public Address(String street, String city, String state) {
+            this.street = street;
+            this.city = city;
+            this.state = state;
+        }
+    }
 
     Address address;
 
@@ -16,10 +25,10 @@ public class Vendor {
 
     Product[] products;
 
-    Vendor(int id, String addressStreet, String addressCity,
+    Vendor( String addressStreet, String addressCity,
            String addressState, String contactName, String contactPhone,
            String contactEmail, String vendorName) {
-        this.id = id;
+        this.id = ++idCounter;
 
         this.address = new Address(addressStreet, addressCity, addressState);
 
@@ -45,7 +54,7 @@ public class Vendor {
 
     Product fetchProductById(int id) {
         for (Product product: products) {
-            if (product.id == id) {
+            if (product.getId() == id) {
                 return product;
             }
         }
@@ -54,12 +63,16 @@ public class Vendor {
 
     Product fetchProductByName(String name) {
         for (Product product: products) {
-            if (product.name.equals(name)) {
+            if (product.getName().equals(name)) {
                 return product;
             }
         }
         return null;
     }
+    static int countVendors() {
+        return idCounter;
+    }
+
 
 
 }
