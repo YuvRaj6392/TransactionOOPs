@@ -1,24 +1,16 @@
 package com.company;
 
-public class Customer {
-    int id;
 
-    String addressStreet;
-    String addressCity;
-    String addressState;
 
-    String contactName;
-    String contactPhone;
-    String contactEmail;
+public class Customer extends BusinessPartner {
 
-    int transactionCount;
+    private int transactionCount;
 
-    String getAddressDetails() {
-        return addressStreet + ", " + addressCity + ", " + addressState;
-    }
-
-    String getContactDetails() {
-        return contactName + ", " + contactPhone + ", " + contactEmail;
+    public Customer(String addressStreet, String addressCity, String addressState,
+                    String contactName, String contactPhone, String contactEmail,
+                    int transactionCount) {
+        super(addressStreet, addressCity, addressState, contactName, contactPhone, contactEmail);
+        this.transactionCount = transactionCount;
     }
 
     int getTransactionCount() {
@@ -26,7 +18,7 @@ public class Customer {
     }
 
     float calculateDiscount() {
-       float discount=transactionCount*0.1f;
-       return discount<=10.0f? discount : 10.0f;
+        float discount = transactionCount * 0.1f;
+        return discount <= 10.0f ? discount : 10.0f;
     }
 }

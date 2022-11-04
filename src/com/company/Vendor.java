@@ -1,58 +1,33 @@
 package com.company;
 
-public class Vendor {
-    static int idCounter=0;
-    int id;
-
-    private static class Address {
-        String street, city, state;
-
-        public Address(String street, String city, String state) {
-            this.street = street;
-            this.city = city;
-            this.state = state;
-        }
-    }
-
-    Address address;
 
 
-    Contact contact;
+public class Vendor extends BusinessPartner {
 
-    String vendorName;
-    float credit;
-    Order[] orders;
+    private String vendorName;
+    private float credit;
+    private Order[] orders;
+    private Product[] products;
 
-    Product[] products;
-
-    Vendor( String addressStreet, String addressCity,
-           String addressState, String contactName, String contactPhone,
-           String contactEmail, String vendorName) {
-        this.id = ++idCounter;
-
-        this.address = new Address(addressStreet, addressCity, addressState);
-
-        this.contact = new Contact(contactName, contactPhone, contactEmail);
+    public Vendor(String addressStreet, String addressCity,
+                  String addressState, String contactName, String contactPhone,
+                  String contactEmail, String vendorName) {
+        super(addressStreet, addressCity, addressState, contactName, contactPhone, contactEmail);
         this.vendorName = vendorName;
         this.credit = 0.0f;
         this.orders = new Order[100];
-        this.products=new Product[100];
+        this.products = new Product[100];
     }
 
-    String getAddressDetails() {
-        return address.street + ", " + address.city + ", " + address.state;
-    }
-
-    String getContactDetails() {
-        return contact.name + ", " + contact.phone + ", " + contact.email;
-    }
-
-    float checkDue() {
+    public float checkDue() {
         return this.credit;
     }
 
+    public void setCredit(float credit) {
+        this.credit = credit;
+    }
 
-    Product fetchProductById(int id) {
+    public Product fetchProductById(int id) {
         for (Product product: products) {
             if (product.getId() == id) {
                 return product;
@@ -61,7 +36,7 @@ public class Vendor {
         return null;
     }
 
-    Product fetchProductByName(String name) {
+    public Product fetchProductByName(String name) {
         for (Product product: products) {
             if (product.getName().equals(name)) {
                 return product;
@@ -69,10 +44,4 @@ public class Vendor {
         }
         return null;
     }
-    static int countVendors() {
-        return idCounter;
-    }
-
-
-
 }
